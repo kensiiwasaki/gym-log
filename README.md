@@ -1,2 +1,1 @@
-react x firebase x redux toolkit
-を用いた、twitter デモアプリ
+ジムの活動記録や日程調整をするためのアプリ
