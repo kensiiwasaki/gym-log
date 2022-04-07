@@ -9,9 +9,6 @@ import {
   Button,
   CssBaseline,
   TextField,
-  FormControlLabel,
-  Checkbox,
-  Link,
   Paper,
   IconButton,
   Box,
@@ -42,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1648737904581-7253f3c739c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)",
+      "url(https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -148,12 +145,15 @@ const Auth: React.FC = () => {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Typography component="h1" variant="h5" className={styles.app_title}>
+          ジムログ
+        </Typography>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            {isLogin ? "Login" : "Register"}
+            {isLogin ? "ログイン" : "アカウント作成"}
           </Typography>
           <form className={classes.form} noValidate>
             {!isLogin && (
@@ -255,7 +255,7 @@ const Auth: React.FC = () => {
                     }
               }
             >
-              {isLogin ? "Login" : "Register"}
+              {isLogin ? "ログイン" : "新規アカウント作成"}
             </Button>
             <Grid container>
               <Grid item xs>
@@ -263,7 +263,7 @@ const Auth: React.FC = () => {
                   className={styles.login_reset}
                   onClick={() => setOpenModal(true)}
                 >
-                  Forgot password?
+                  パスワードの再設定
                 </span>
               </Grid>
               <Grid item>
@@ -271,7 +271,7 @@ const Auth: React.FC = () => {
                   className={styles.login_toggleMode}
                   onClick={() => setIsLogin(!isLogin)}
                 >
-                  {isLogin ? "Create new account ?" : "Back to login"}
+                  {isLogin ? "アカウント作成" : "ログインフォーム"}
                 </span>
               </Grid>
             </Grid>
@@ -283,7 +283,7 @@ const Auth: React.FC = () => {
               className={classes.submit}
               onClick={signInGoogle}
             >
-              SignIn with Google
+              Googleアカウントでログイン
             </Button>
           </form>
           <Modal open={openModal} onClose={() => setOpenModal(false)}>
