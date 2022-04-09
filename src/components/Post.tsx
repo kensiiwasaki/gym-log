@@ -143,7 +143,7 @@ const Post: React.FC<PROPS> = (props) => {
                 <input
                   className={styles.post_input}
                   type="text"
-                  placeholder="Type new comment..."
+                  placeholder="コメントを追加"
                   value={comment}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setComment(e.target.value)

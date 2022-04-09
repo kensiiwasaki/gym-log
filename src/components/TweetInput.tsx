@@ -79,7 +79,7 @@ const TweetInput: React.FC = () => {
           />
           <input
             className={styles.tweet_input}
-            placeholder="What's happening"
+            placeholder="今日のメニュー"
             type="text"
             autoFocus
             value={tweetMsg}
