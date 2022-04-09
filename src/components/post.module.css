@@ -42,10 +42,17 @@
   border-radius: 20px;
   max-height: 250px;
 }
-.post_commentIcon {
-  margin-top: 15px;
+.post_deleteIcon {
   color: whitesmoke;
   cursor: pointer;
+}
+.post_commentIcon {
+  color: whitesmoke;
+  cursor: pointer;
+}
+.icon_container {
+  display: flex;
+  gap: 20px;
 }
 .post_comment {
   display: flex;

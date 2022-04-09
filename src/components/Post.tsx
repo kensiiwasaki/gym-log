@@ -4,10 +4,11 @@ import { db } from "../firebase";
 import firebase from "firebase/app";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
-import { Avatar } from "@material-ui/core";
+import { Avatar, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MessageIcon from "@material-ui/icons/Message";
 import SendIcon from "@material-ui/icons/Send";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 interface PROPS {
   postId: string;
@@ -83,6 +84,10 @@ const Post: React.FC<PROPS> = (props) => {
     setComment("");
   };
 
+  const deletePost = async () => {
+    await db.collection("posts").doc(props.postId).delete();
+  };
+
   return (
     <div className={styles.post}>
       <div className={styles.post_avatar}>
@@ -108,10 +113,16 @@ const Post: React.FC<PROPS> = (props) => {
           </div>
         )}
 
-        <MessageIcon
-          className={styles.post_commentIcon}
-          onClick={() => setOpenComments(!openComments)}
-        />
+        <div className={styles.icon_container}>
+          <MessageIcon
+            className={styles.post_commentIcon}
+            onClick={() => setOpenComments(!openComments)}
+          />
+          <DeleteIcon
+            onClick={() => deletePost()}
+            className={styles.post_deleteIcon}
+          />
+        </div>
 
         {openComments && (
           <>
