@@ -6,6 +6,7 @@ import { auth, storage, db } from "../firebase";
 import { Avatar, Button, IconButton } from "@material-ui/core";
 import firebase from "firebase/app";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
+import SendIcon from "@material-ui/icons/Send";
 
 const TweetInput: React.FC = () => {
   const user = useSelector(selectUser);
@@ -70,7 +71,7 @@ const TweetInput: React.FC = () => {
       <form onSubmit={sendTweet}>
         <div className={styles.tweet_form}>
           <Avatar
-            className={styles.Tweet_avatar}
+            className={styles.tweet_avatar}
             src={user.photoUrl}
             onClick={async () => {
               await auth.signOut();
@@ -98,16 +99,16 @@ const TweetInput: React.FC = () => {
               />
             </label>
           </IconButton>
+          <Button
+            type="submit"
+            disabled={!tweetMsg}
+            className={
+              tweetMsg ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
+            }
+          >
+            <SendIcon />
+          </Button>
         </div>
-        <Button
-          type="submit"
-          disabled={!tweetMsg}
-          className={
-            tweetMsg ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
-          }
-        >
-          Tweet
-        </Button>
       </form>
     </>
   );

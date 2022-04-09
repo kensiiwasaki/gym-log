@@ -5,7 +5,7 @@
 }
 .tweet_avatar {
   cursor: pointer;
-  margin-top: 2px;
+  margin-top: 12px;
 }
 .tweet_input {
   margin-left: 40px;
@@ -30,24 +30,17 @@
 }
 .tweet_sendBtn {
   background-color: #00bfff !important;
-  border: none !important;
   color: white !important;
-  font-weight: 800 !important;
-  text-transform: inherit !important;
   border-radius: 20px !important;
-  width: 80px;
-  height: 40px !important;
-  margin-left: 80% !important;
+  margin: 12px !important;
+}
+.tweet_sendBtn :hover {
+  opacity: 50%;
 }
 .tweet_sendDisableBtn {
   background-color: gray !important;
-  border: none !important;
   color: white !important;
-  font-weight: 900 !important;
-  text-transform: inherit !important;
   border-radius: 30px !important;
-  width: 80px;
-  height: 40px !important;
-  margin-left: 80% !important;
-  cursor: none !important;
+  margin: 12px !important;
+  cursor: not-allowed !important;
 }
