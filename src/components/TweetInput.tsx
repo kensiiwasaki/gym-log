@@ -85,29 +85,33 @@ const TweetInput: React.FC = () => {
             value={tweetMsg}
             onChange={(e) => setTweetMsg(e.target.value)}
           />
-          <IconButton>
-            <label>
-              <AddPhotoIcon
-                className={
-                  tweetImage ? styles.tweet_addIconLoaded : styles.tweet_addIcon
-                }
-              />
-              <input
-                className={styles.tweet_hiddenIcon}
-                type="file"
-                onChange={onChangeImageHandler}
-              />
-            </label>
-          </IconButton>
-          <Button
-            type="submit"
-            disabled={!tweetMsg}
-            className={
-              tweetMsg ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
-            }
-          >
-            <SendIcon />
-          </Button>
+          <div className={styles.icon_container}>
+            <IconButton>
+              <label>
+                <AddPhotoIcon
+                  className={
+                    tweetImage
+                      ? styles.tweet_addIconLoaded
+                      : styles.tweet_addIcon
+                  }
+                />
+                <input
+                  className={styles.tweet_hiddenIcon}
+                  type="file"
+                  onChange={onChangeImageHandler}
+                />
+              </label>
+            </IconButton>
+            <Button
+              type="submit"
+              disabled={!tweetMsg}
+              className={
+                tweetMsg ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
+              }
+            >
+              <SendIcon />
+            </Button>
+          </div>
         </div>
       </form>
     </>

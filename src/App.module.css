@@ -4,3 +4,9 @@
   padding: 30px 8%;
   background-color: #b0e0e6;
 }
+
+@media screen and (max-width: 500px) {
+  .app {
+    padding: 30px 2%;
+  }
+}
