@@ -17,6 +17,10 @@
   color: #333333;
   font-size: 18px;
 }
+.icon_container {
+  display: flex;
+  justify-content: space-around;
+}
 .tweet_addIcon {
   cursor: pointer;
   color: white;
@@ -43,4 +47,26 @@
   border-radius: 30px !important;
   margin: 12px !important;
   cursor: not-allowed !important;
+}
+
+@media screen and (max-width: 500px) {
+  .tweet_form {
+    flex-flow: column;
+    justify-content: center;
+    margin: 0;
+  }
+  .tweet_avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+  }
+  .tweet_input {
+    margin-left: 0;
+    width: 100%;
+  }
+  .icon_container {
+    display: flex;
+    justify-content: space-around;
+  }
 }
