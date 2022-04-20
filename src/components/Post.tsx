@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import firebase from "firebase/app";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
-import { Avatar, Divider } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MessageIcon from "@material-ui/icons/Message";
 import SendIcon from "@material-ui/icons/Send";
