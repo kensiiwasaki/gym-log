@@ -5,13 +5,11 @@ import { updateUserProfile } from "../features/userSlice";
 import { auth, provider, storage } from "../firebase";
 import {
   Avatar,
-  Modal,
   Button,
   CssBaseline,
   TextField,
   Paper,
   IconButton,
-  Box,
   Grid,
   Typography,
   makeStyles,
@@ -21,17 +19,18 @@ import SendIcon from "@material-ui/icons/Send";
 import CameraIcon from "@material-ui/icons/Camera";
 import EmailIcon from "@material-ui/icons/Email";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { Modal } from "@mantine/core";
 
-function getModalStyle() {
-  const top = 50;
-  const left = 50;
+// function getModalStyle() {
+//   const top = 50;
+//   const left = 50;
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
+//   return {
+//     top: `${top}%`,
+//     left: `${left}%`,
+//     transform: `translate(-${top}%, -${left}%)`,
+//   };
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -173,25 +172,25 @@ const Auth: React.FC = () => {
                     setUsername(e.target.value);
                   }}
                 />
-                <Box textAlign="center">
-                  <IconButton>
-                    <label>
-                      <AccountCircleIcon
-                        fontSize="large"
-                        className={
-                          avatarImage
-                            ? styles.login_addIconLoaded
-                            : styles.login_addIcon
-                        }
-                      />
-                      <input
-                        className={styles.login_hiddenIcon}
-                        type="file"
-                        onChange={onChangeImageHandler}
-                      />
-                    </label>
-                  </IconButton>
-                </Box>
+                {/* <Box textAlign="center"> */}
+                <IconButton>
+                  <label>
+                    <AccountCircleIcon
+                      fontSize="large"
+                      className={
+                        avatarImage
+                          ? styles.login_addIconLoaded
+                          : styles.login_addIcon
+                      }
+                    />
+                    <input
+                      className={styles.login_hiddenIcon}
+                      type="file"
+                      onChange={onChangeImageHandler}
+                    />
+                  </label>
+                </IconButton>
+                {/* </Box> */}
               </>
             )}
 
@@ -286,26 +285,22 @@ const Auth: React.FC = () => {
               Googleアカウントでログイン
             </Button>
           </form>
-          <Modal open={openModal} onClose={() => setOpenModal(false)}>
-            <div style={getModalStyle()} className={classes.modal}>
-              <div className={styles.login_modal}>
-                <TextField
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  type="email"
-                  name="email"
-                  label="Reset E-mail"
-                  value={resetEmail}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setResetEmail(e.target.value);
-                  }}
-                />
-                <IconButton onClick={sendResetEmail}>
-                  <SendIcon />
-                </IconButton>
-              </div>
-            </div>
+          <Modal opened={openModal} onClose={() => setOpenModal(false)}>
+            <TextField
+              InputLabelProps={{
+                shrink: true,
+              }}
+              type="email"
+              name="email"
+              label="Reset E-mail"
+              value={resetEmail}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setResetEmail(e.target.value);
+              }}
+            />
+            <IconButton onClick={sendResetEmail}>
+              <SendIcon />
+            </IconButton>
           </Modal>
         </div>
       </Grid>
